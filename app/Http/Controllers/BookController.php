@@ -95,4 +95,12 @@ class BookController extends Controller
         $book->restore();
         return redirect('books')->with('status', 'Book Restored Succesfully');
     }
+
+    public function orderbook()
+    {
+        $orderbooks = Book::all();
+        return view('order-book', ['orderbooks' => $orderbooks]);
+    }
+
+
 }

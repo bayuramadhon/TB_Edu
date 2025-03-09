@@ -67,7 +67,7 @@ class BookRentController extends Controller
         $books = Book::all();
         return view('return-book', ['users' => $users, 'books' => $books]);
     }
-//29:43
+
     public function saveReturnBook(Request $request)
     {
         // user & buku yang dipilih untuk direturn benar, maka berhasil return book

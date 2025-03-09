@@ -10,6 +10,7 @@ use App\Http\Controllers\RentLogController;
 use App\Http\Controllers\BookRentController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ReceiptController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -24,6 +25,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 */
 
 Route::get('/', [PublicController::class,'index']);
+Route::get('x', [BookController::class, 'coba']);
 
 Route::middleware('only_guest')->group(function () {
     Route::get('login', [AuthController::class, 'login'])->name('login');
@@ -39,6 +41,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware('only_admin')->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index']);
 
+
     Route::get('books', [BookController::class, 'index']);
     Route::get('book-add', [BookController::class,'add']);
     Route::post('book-add',[BookController::class,'store']);
@@ -48,6 +51,7 @@ Route::middleware('only_admin')->group(function () {
     Route::get('book-destroy/{slug}', [BookController::class,'destroy']);
     Route::get('book-deleted', [BookController::class, 'deletedBook']);
     Route::get('book-restore/{slug}',[BookController::class,'restore']);
+    Route::get('order-books', [BookController::class, 'orderbook']);
 
     Route::get('categories', [CategoryController::class, 'index']);
     Route::get('category-add', [CategoryController::class, 'add']);
@@ -75,6 +79,13 @@ Route::middleware('only_admin')->group(function () {
 
     Route::get('book-return',[BookRentController::class, 'returnBook']);
     Route::post('book-return',[BookRentController::class, 'saveReturnBook']);
+
+    Route::get('/receipt', function () {
+        return view('receipt');
+    });
+
+
+
     });
 
 

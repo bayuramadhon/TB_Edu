@@ -37,6 +37,7 @@
                         <a href="/users" class=" {{Request::is('users') ? 'active' : ' '}}">Users</a>
                         <a href="/rent-logs" class=" {{Request::is('rent-logs') ? 'active' : ' '}}">Rent Log</a>
                         <a href="/">Book list</a>
+                        <a href="/order-books">Order book</a>
                         <a href="/book-rent">Book Rent</a>
                         <a href="book-return">book-return</a>
                         <a href="/logout">Logout</a>

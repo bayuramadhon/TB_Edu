@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('book_code');
             $table->string('title');
+            $table->unsignedBigInteger('price');
             $table->string('status')->default('in stock');
             $table->timestamps();
         });
